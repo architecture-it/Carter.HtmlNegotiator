@@ -1,9 +1,9 @@
-﻿namespace HtmlNegotiator
+﻿namespace Carter.HtmlNegotiator
 {
-    using Microsoft.AspNetCore.Http;
+  using Microsoft.AspNetCore.Http;
 
-    public interface IViewLocator
-    {
-        string GetView(object model, HttpContext httpContext);
-    }
+  public interface IViewLocator
+  {
+    string GetView(object model, HttpContext httpContext);
+  }
 }
