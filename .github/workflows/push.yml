@@ -1,0 +1,31 @@
+name: Pack & Push
+
+on:
+  push:
+    branches: [ master ]
+    paths:
+     - 'Directory.Build.props'
+jobs:
+  pack_and_push:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.401
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build Carter.HtmlNegotiator.sln --configuration Release --no-restore
+    - name: Pack
+      run: dotnet pack Carter.HtmlNegotiator.sln --no-build -c Release -o artifacts
+    - name: Push
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        nupkg-path:  './artifacts/*.nupkg'
+        repo-owner:  'architecture-it'
+        gh-user:  'fglaeser'
+        token:  ${{ secrets.PERSONAL_TOKEN }}
