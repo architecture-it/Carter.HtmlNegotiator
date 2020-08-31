@@ -1,0 +1,11 @@
+﻿<Project>
+  <PropertyGroup>
+    <Authors>Jonathan Channon; Facundo Glaeser</Authors>
+    <Description>A library to extend Carter to handle html views.</Description>
+    <PackageTags>carter html</PackageTags>
+    <RepositoryUrl>https://github.com/architecture-it/Carter.HtmlNegotiator</RepositoryUrl>
+	<PackageIconUrl>https://github.com/CarterCommunity/Media/raw/master/carterlogo.png</PackageIconUrl>
+    <Version>0.1.0</Version>
+    <RepositoryType>git</RepositoryType>
+  </PropertyGroup>
+</Project>
